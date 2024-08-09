@@ -7,4 +7,4 @@ FROM
 GROUP BY 
     origin  -- Grouping by country of origin
 ORDER BY 
-    total_fans DESC;  -- Ordering results by the total number of fans in descending order
+    nb_fans DESC;  -- Ordering results by the total number of fans in descending order
