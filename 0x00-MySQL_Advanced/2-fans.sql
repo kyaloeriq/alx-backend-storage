@@ -1,3 +1,4 @@
+-- Ranks country origins of bands, ordered by the number of (non-unique) fans
 SELECT
     origin,  -- Country of origin of the band
     SUM(nb_fans) AS total_fans  -- Sum of non-unique fans per country
@@ -6,4 +7,4 @@ FROM
 GROUP BY
     origin  -- Grouping by country of origin
 ORDER BY
-    nb_fans DESC;  -- Ordering results by the total number of fans in descending order
+    total_fans DESC;  -- Ordering results by the total number of fans in descending order
