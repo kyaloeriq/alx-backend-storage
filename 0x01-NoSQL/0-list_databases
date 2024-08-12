@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-// Script to list all databases in MongoDB.
 
 from pymongo import MongoClient
 
+// Script to list all databases in MongoDB
 
 def list_databases(client):
     """
