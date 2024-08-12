@@ -5,6 +5,7 @@ This script lists all databases in MongoDB.
 
 from pymongo import MongoClient
 
+
 def list_databases():
     """Lists all databases in MongoDB."""
     client = MongoClient()
@@ -12,6 +13,7 @@ def list_databases():
     print("Databases:")
     for db in databases:
         print(f"- {db}")
+
 
 if __name__ == "__main__":
     list_databases()
