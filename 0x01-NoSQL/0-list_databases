@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+// Script to list all databases in MongoDB.
 """
 Script to list all databases in MongoDB.
 """
