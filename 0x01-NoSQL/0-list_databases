@@ -4,6 +4,7 @@ from pymongo import MongoClient
 
 // Script to list all databases in MongoDB
 
+
 def list_databases(client):
     """
     List all databases in the MongoDB cluster.
