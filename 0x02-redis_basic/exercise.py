@@ -8,6 +8,7 @@ import uuid
 from typing import Union, Callable, Optional
 from functools import wraps
 
+
 def count_calls(method: Callable) -> Callable:
     """
     Decorator to count how many times a method is called.
@@ -23,12 +24,12 @@ def count_calls(method: Callable) -> Callable:
         self._redis.incr(key)
         # Call the original method and return its result
         return method(self, *args, **kwargs)
-    
     return wrapper
+
 
 class Cache:
     """
-    Cache class that interacts with Redis to store and retrieve data, with method call counting.
+    Cache class that interacts with Redis to store and retrieve data
     """
 
     def __init__(self) -> None:
@@ -48,7 +49,9 @@ class Cache:
         return key
 
     @count_calls
-    def get(self, key: str, fn: Optional[Callable[[bytes], Union[str, int, float]]] = None) -> Optional[Union[str, int, float, bytes]]:
+    def get(self, key: str, fn: Optional[
+        Callable[[bytes], Union[str, int, float]]
+                ] = None) -> Optional[Union[str, int, float, bytes]]:
         """
         Retrieve data from Redis and optionally apply a conversion function.
         """
