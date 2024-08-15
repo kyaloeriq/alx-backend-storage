@@ -1,4 +1,8 @@
-// This script lists all databases in the MongoDB instance.
+// This script lists all databases in the MongoDB instance with their sizes in GB.
 
 const databases = db.adminCommand({ listDatabases: 1 });
-printjson(databases);
+
+databases.databases.forEach(db => {
+    const sizeInGB = (db.sizeOnDisk / (1024 * 1024 * 1024)).toFixed(3);
+    print(`${db.name.padEnd(12)} ${sizeInGB}GB`);
+});
