@@ -1,4 +1,14 @@
-// This script creates or uses the database `my_db`.
+// This script creates or uses the database 'my_db'.
+const dbName = "my_db";
 
-const db = connect("mongodb://127.0.0.1:27017/my_db");
-print("Using database: " + db.getName());
+// Switch to the 'my_db' database or create it if it doesn't exist
+use(dbName);
+
+// Verify the active database
+print(`Using database: ${db.getName()}`);
+
+// Optionally, you can create a collection to ensure the database persists
+db.createCollection("example_collection");
+
+// Confirm creation of the collection
+print(`Collection 'example_collection' created or already exists.`);
