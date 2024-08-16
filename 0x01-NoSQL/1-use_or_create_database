@@ -9,6 +9,3 @@ print(`Using database: ${db.getName()}`);
 
 // Optionally, you can create a collection to ensure the database persists
 db.createCollection("example_collection");
-
-// Confirm creation of the collection
-print(`Collection 'example_collection' created or already exists.`);
