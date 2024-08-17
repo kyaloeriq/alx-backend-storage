@@ -7,5 +7,7 @@ db = db.getSiblingDB(dbName);
 // Verifies the active database
 print(`switched to db ${db.getName()}`);
 
-// Optionally creates a collection to ensure the database persists
-db.createCollection("example_collection");
+// Optionally checks if the collection exists before creating it
+if (!db.getCollectionNames().includes("example_collection")) {
+    db.createCollection("example_collection");
+}
