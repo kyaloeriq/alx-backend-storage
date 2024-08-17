@@ -1,3 +1,4 @@
-// This script inserts a document into the collection `school` with a single attribute `name`.
-
-db.school.insertOne({ name: "Holberton school" });
+// Insert a document into the collection 'school'
+db.school.insertOne({
+    name: "Holberton school"
+});
