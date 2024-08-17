@@ -1,13 +1,22 @@
-// This script creates or uses the database 'my_db'.
+// Check if the database my_db exists
 const dbName = "my_db";
+const existingDbs = db.adminCommand({ listDatabases: 1 }).databases;
+let dbExists = false;
 
-// Switch to the 'my_db' database or create it if it doesn't exist
-db = db.getSiblingDB(dbName);
+existingDbs.forEach(db => {
+    if (db.name === dbName) {
+        dbExists = true;
+    }
+});
 
-// Verifies the active database
-print(`switched to db ${db.getName()}`);
-
-// Optionally checks if the collection exists before creating it
-if (!db.getCollectionNames().includes("example_collection")) {
-    db.createCollection("example_collection");
+if (dbExists) {
+    print(`Database "${dbName}" already exists. Switching to it...`);
+} else {
+    print(`Database "${dbName}" does not exist. Creating and switching to it...`);
 }
+
+// Switch to my_db
+use my_db;
+
+// Optional: Insert a dummy document to create the database if it doesn't exist
+db.testCollection.insertOne({ created: true });
