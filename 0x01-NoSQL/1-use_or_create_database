@@ -1,22 +1,2 @@
-// Check if the database my_db exists
-const dbName = "my_db";
-const existingDbs = db.adminCommand({ listDatabases: 1 }).databases;
-let dbExists = false;
-
-existingDbs.forEach(db => {
-    if (db.name === dbName) {
-        dbExists = true;
-    }
-});
-
-if (dbExists) {
-    print(`Database "${dbName}" already exists. Switching to it...`);
-} else {
-    print(`Database "${dbName}" does not exist. Creating and switching to it...`);
-}
-
-// Switch to my_db
+// Switch to the database my_db
 use my_db;
-
-// Optional: Insert a dummy document to create the database if it doesn't exist
-db.testCollection.insertOne({ created: true });
