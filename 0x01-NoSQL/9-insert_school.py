@@ -19,7 +19,7 @@ def insert_school(mongo_collection: Collection, **kwargs: Any) -> str:
     Args:
         mongo_collection (Collection): The pymongo collection object. This object
         represents the collection within a MongoDB database where the document will be inserted.
-        **kwargs: Arbitrary keyword arguments that represent the fields and values of the document.
+        **kwargs: Arbitrary keyword arguments representing the fields and values of the document.
 
     Returns:
         str: The `_id` of the newly inserted document.
@@ -35,3 +35,20 @@ def insert_school(mongo_collection: Collection, **kwargs: Any) -> str:
     # Insert the document into the collection and return the new document's _id
     result = mongo_collection.insert_one(kwargs)
     return str(result.inserted_id)
+
+if __name__ == "__main__":
+    from pymongo import MongoClient
+
+    def main():
+        # Establish a connection to the MongoDB server
+        client = MongoClient('mongodb://localhost:27017/')
+
+        # Select the database and collection
+        db = client.myDatabase
+        collection = db.school
+
+        # Insert a new document and print the new document's _id
+        new_id = insert_school(collection, name="Holberton School", address="972 Mission Street")
+        print(f"New document inserted with _id: {new_id}")
+
+    main()
